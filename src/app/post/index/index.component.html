@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>My Blog Posts</h1>
+    <a routerLink="/post/create/" class="btn btn-success">Create New Post</a>
+
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Body</th>
+            <th scope="col" width="220px">Actions</th>
+        </tr>
+        <tr *ngFor="let post of posts">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td>
+                <a href="#" [routerLink]="['/post/', post.id,  'view']" class="btn btn-info pad">View</a>
+                <a href="#" [routerLink]="['/post/', post.id,  'edit']" class="btn btn-info pad">Edit</a>
+                <button type="button" (click)="deletePost(post.id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
